@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title><%= htmlWebpackPlugin.options.title %></title>
+	</head>
+	<body>
+		<noscript>
+			<strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+		</noscript>
+		<div id="app"></div>
+		<div class='kt-footer container'>
+			<div align="center">
+				<p>
+					总部：广州市天河区华穗路174号星辰大厦东塔1001 <br />
+					版权所有：广州健知教育咨询有限公司&nbsp;&nbsp;<a href="/kxyj">健知校区</a><br />
+					网站备案：粤ICP备12070958号 
+					<script src="http://s84.cnzz.com/stat.php?id=4617020&web_id=4617020&show=pic" language="JavaScript">&nbsp;&nbsp;</script> &nbsp; 
+					<a href="/nzj/view.aspx?id=17">关于我们</a>
+				</p>
+				<div className="blk_mobile" style='height:8vh'></div>
+			</div>
+			<script>
+				(function(){
+					// var _hmt = _hmt || [];
+					var hm = document.createElement("script");
+					hm.src = "https://hm.baidu.com/hm.js?98ff57905b9ec8524d535d94fee77e7d";
+					var s = document.getElementsByTagName("script")[0];
+					s.parentNode.insertBefore(hm, s);
+
+					function dynamicLoadCss(url) {
+						var head = document.getElementsByTagName('head')[0];
+						var link = document.createElement('link');
+						link.type = 'text/css';
+						link.rel = 'stylesheet';
+						link.href = url;
+						head.appendChild(link);
+					}
+					dynamicLoadCss("/css/bridge.css");
+				})();
+			</script>
+		</div>
+		<!-- built files will be auto injected -->
+	</body>
+</html>
