@@ -3,11 +3,11 @@
 		<TheAns v-bind:ans_list='ans_list' />
 		<div class='kt-bars' v-on:touchend.once='adapterIOS'>
 			<div class='kt-audio'>
-				<audio
-					ref='audio'
-					src='../assets/di.mp3'
-				>
-				</audio>
+				<!-- 手机上两个播放太过接近会导致播放不清的问题，所以使用3个标签 -->
+				<!-- 手机上两个播放太近仍然会出现问题，切换使用egret，此项目作废 -->
+				<audio ref='audio1' src='../assets/di2.mp3' ></audio>
+				<audio ref='audio2' src='../assets/di2.mp3' ></audio>
+				<audio ref='audio3' src='../assets/di2.mp3' ></audio>
 			</div>
 			<TheBar 
 				v-for='(item,i) in sentences'
@@ -74,13 +74,17 @@ export default{
 		},
 		stopSentence(){
 			this.clearHandler();
-			this.$refs.audio.pause();
+			this.$refs["audio1"].pause();
+			this.$refs["audio2"].pause();
+			this.$refs["audio3"].pause();
 			this.play=false;
 		},
-		sayDi(){
-			if(!this.$refs.audio) return;
-			this.$refs.audio.currentTime = 0;
-			this.$refs.audio.play();
+		sayDi(c){
+			let audio=this.$refs["audio"+c];
+			if(!audio) return;
+			audio.pause();
+			audio.currentTime = 0;
+			audio.play();
 		},
 		sayNum(n){
 			let n_int=parseInt(n);
@@ -97,7 +101,7 @@ export default{
 					loopEnd.bind(this)();
 					return;
 				}
-				this.sayDi();
+				this.sayDi(c);
 				this.timeoutHandler=setTimeout(loop.bind(this),prp.inter);
 			}
 			function loopEnd() {
@@ -204,9 +208,9 @@ export default{
 			return doms;
 		},
 		adapterIOS(){
-			if(!this.$refs.audio) return;
-			this.$refs.audio.play();
-			this.$refs.audio.pause();
+			if(!this.$refs["audio1"]) return;
+			this.$refs["audio1"].play();
+			this.$refs["audio1"].pause();
 			console.log("adapterIOS--complete")
 		}
 	},
@@ -270,7 +274,7 @@ export default{
 	overflow-y:scroll;
 }
 .kt-audio{
-	display: none;
+	// display: none;
 }
 @media(min-width:576px){
 	.kt-bars{
