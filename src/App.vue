@@ -10,7 +10,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TheHeader from './components/TheHeader.vue';
 import TheTip from './components/TheTip.vue';
-import TheBars from './components/TheBars.vue';
+import TheBars from './components/TheBars.vue';asd
 
 export default {
 	name: 'App',
